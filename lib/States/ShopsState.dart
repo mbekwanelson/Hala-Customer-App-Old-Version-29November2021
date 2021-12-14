@@ -112,6 +112,10 @@ class ShopsState with ChangeNotifier{
             LatLng(currentUserPosition.latitude, currentUserPosition.longitude),
             LatLng(lat, long));
 
+        print("-------------------------------- Car Route Distance           ------------------");
+        print(carRouteDistance);
+        print("-------------------------------- Car Route Distance Printed   ------------------");
+
         km = double.parse(carRouteDistance) / 1000;
         if (km <= CUTOFFDISTANCE) {
           shops.add(Shop(
@@ -125,11 +129,8 @@ class ShopsState with ChangeNotifier{
             openingTime : _OpeningTime.toString(),
             closingTime : _ClosingTime.toString(),
           ));
-          print(shop);
         }
-
       }
-      print(shops);
     }
     catch(a,e){
       print(e);

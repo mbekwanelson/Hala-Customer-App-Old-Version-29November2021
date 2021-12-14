@@ -71,7 +71,8 @@ List<String>  _progressFromShop(DocumentSnapshot snapshot){
 
 
 
-Stream<List<String>> getShopProgress({String uid}){
- return Firestore.instance.collection('OrdersRefined').document(uid).snapshots().map(_progressFromShop);
-}
+ Stream<List<String>> getShopProgress({String uid}){
+   return Firestore.instance.collection('OrdersRefined').document(uid).snapshots().map(_progressFromShop);
+ }
+
 }

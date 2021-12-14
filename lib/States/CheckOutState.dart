@@ -71,7 +71,7 @@ class CheckOutState with ChangeNotifier{
         "date":orders[i].time,
         "quantity":orders[i].quantity,
       });
-      // await Auth().checkOutApproved(orders[i]);
+      //await Auth().checkOutApproved(orders[i]);
     }
   }
 

@@ -10,8 +10,6 @@ import 'package:mymenu/Models/Shop.dart';
 
 class MealDetailState{
 
-
-
  Future<double> calculateDelivery(Shop shop)async{
   print("SHOP Here : $shop");
    dynamic latitude = shop.latitude;

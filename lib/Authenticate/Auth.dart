@@ -86,12 +86,14 @@ class Auth {
         'active': 1,
         'user': uid,
         'date':DateTime.now(),
+        'checkOut':"Yes",
         'shopSeen':"No",
         'promo': promoApplied=="Yes" ? promo: 0,
         'Payment Method':"Cash",
         "deliveryFee": deliveryFee
       }
-    },merge: true);
+    }, merge: true);
+
     await Future.delayed(const Duration(seconds: 1), () => "1");
     if(promoApplied=="Yes") {
       indexPromo.isEmpty ? print(indexPromo) : await Firestore.instance.collection("Users").document(uid).updateData(
@@ -109,9 +111,6 @@ class Auth {
           "${food.title}.date": DateTime.now(),
           "${food.title}.deliveryFee": deliveryFee
         });
-
-
-
   }
 
 
@@ -138,6 +137,7 @@ class Auth {
         'user': uid,
         'date':DateTime.now(),
         'shopSeen':"No",
+        'checkOut':"Yes",
         'promo': promoApplied=="Yes" ? promo: 0,
         "Payment Method":"Card",
         "deliveryFee": deliveryFee

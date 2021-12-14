@@ -206,6 +206,7 @@ class _MealDetailsState extends State<MealDetails> {
                              await Database().loadLocation(position.latitude, position.longitude);
 
                             for (int i = 0; i < widget.meals.length; i++){
+
                               print('${widget.category} Category');
                               String isOperational = await Auth().isShopOperational(widget.shop.shopName,widget.category);
                               if(isOperational =="Closed"){
@@ -227,19 +228,25 @@ class _MealDetailsState extends State<MealDetails> {
                                               category: widget.category)));
                               }else{
 
-                                Navigator.pop(context);
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            StreamProvider.value(
-                                                value: AfterCheckOutState()
-                                                    .getShopProgress(
-                                                    uid: widget.user),
-                                                child: AfterCheckOut())));
+                                if(widget.meals.length - i  == 1)
+                                {
+                                  // only after the last order has been checked out on db
+                                  //await Auth().checkOutApprovedCash(widget.meals.elementAt(i), widget.promo.price, widget.promo.index, widget.promoApplied, deliveryFee, widget.category);
 
+
+                                       Navigator.pop(context);
+                                       Navigator.push(
+                                           context,
+                                           MaterialPageRoute(
+                                               builder: (context) =>
+                                                   StreamProvider.value(
+                                                       value: AfterCheckOutState()
+                                                           .getShopProgress(uid: widget.user),
+                                                       child: AfterCheckOut())));
+
+
+                                  }
                               }
-
                           }
                         }
                           },

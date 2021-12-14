@@ -13,13 +13,13 @@ class _OrderPlacedState extends State<OrderPlaced> {
   @override
   Widget build(BuildContext context) {
     List<ConfirmOrder> orders = [];
-    ConfirmOrderScreenState().confirmOrders().then((value){
-
-      setState(() {
-        orders = value;
-      });
-
-    });
+    ConfirmOrderScreenState()
+        .confirmOrders()
+        .then((value){
+            setState(() {
+              orders = value;
+            });
+        });
 
 
     return orders ==[] ? Loading():Scaffold(
