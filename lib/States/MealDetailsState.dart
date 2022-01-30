@@ -21,6 +21,7 @@ class MealDetailState{
        .getRouteCoordinates(
        LatLng(latitude, longitude),
        LatLng(customerLocation.latitude, customerLocation.longitude));
+  carRouteDistance = carRouteDistance.replaceAll(",", "");
    km = double.parse(carRouteDistance)/1000;
 
    if(km<5){

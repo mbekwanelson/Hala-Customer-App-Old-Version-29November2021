@@ -66,6 +66,7 @@ class _MealDetailsState extends State<MealDetails> {
       appBar: AppBar(
         title:Text("Order Summary"),
         centerTitle: true,
+        backgroundColor: Colors.black87,
       ),
       body:Center(
         child: Container(
@@ -141,17 +142,24 @@ class _MealDetailsState extends State<MealDetails> {
                 Divider(
                   color: Colors.black,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child:Container(
-                    height: 40,
+                Container(
+                  height: 40,
 
-                    color: Colors.grey,
+                  color: Colors.black87,
+
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical:10,horizontal:20),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("--- Total"),
-                        Text("R ${(widget.subtotal+cardFee+deliveryFee-promoValue).toStringAsFixed(2)}")
+                        Text("--- Total",
+                        style: TextStyle(
+                          color:Colors.white
+                        ),),
+                        Text("R ${(widget.subtotal+cardFee+deliveryFee-promoValue).toStringAsFixed(2)}",
+                        style: TextStyle(
+                          color:Colors.white
+                        ),)
                       ],
                     ),
                   ),
@@ -228,6 +236,9 @@ class _MealDetailsState extends State<MealDetails> {
                                               category: widget.category)));
                               }else{
 
+                                await Auth().checkOutApprovedCash(widget.meals.elementAt(i), widget.promo.price, widget.promo.index, widget.promoApplied, deliveryFee, widget.category);
+
+
                                 if(widget.meals.length - i  == 1)
                                 {
                                   // only after the last order has been checked out on db
@@ -250,7 +261,8 @@ class _MealDetailsState extends State<MealDetails> {
                           }
                         }
                           },
-                    child: Text("Check Out")
+                    child: Text("Check Out",
+                    style:TextStyle(color:Colors.black87))
                 )
 
               ],

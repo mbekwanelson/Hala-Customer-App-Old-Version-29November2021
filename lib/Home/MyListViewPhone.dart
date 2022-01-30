@@ -104,7 +104,7 @@ class _MyListViewPhoneState extends State<MyListViewPhone> {
                                             backgroundColor : MaterialStateProperty.all<Color>(Colors.black),
                                           ),
                                           onPressed: () {
-                                              print("Ouch you clicked me");
+                                              _showSettingsPanel(widget.foodAndConnect[index]);
                                           },
                                           child: Text('Add',style: TextStyle(
                                             color: Colors.white,

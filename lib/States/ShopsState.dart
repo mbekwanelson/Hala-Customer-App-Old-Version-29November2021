@@ -113,6 +113,7 @@ class ShopsState with ChangeNotifier{
             LatLng(lat, long));
 
         print("-------------------------------- Car Route Distance           ------------------");
+        carRouteDistance = carRouteDistance.replaceAll(",", "");
         print(carRouteDistance);
         print("-------------------------------- Car Route Distance Printed   ------------------");
 
