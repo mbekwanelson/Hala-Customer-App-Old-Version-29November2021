@@ -75,6 +75,8 @@ class Auth {
       mealOption+=option +",";
     }
 
+    print("Auth Checkout Approved Cash " + promoApplied);
+    print("Auth Checkout Approved Cash " + promo.toString());
 
 
     await Firestore.instance.collection("OrdersShops").document("OrdersShops").collection(food.shop).document(uid).setData({
@@ -102,7 +104,7 @@ class Auth {
           });
     }
 
-  
+
     return await Firestore.instance.collection("OrdersRefined").document(uid).updateData(
         {
           "${food.title}.checkOut": "Yes",

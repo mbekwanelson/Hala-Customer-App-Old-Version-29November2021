@@ -167,7 +167,7 @@ class _MealDetailsState extends State<MealDetails> {
 
 
                 OutlinedButton(
-                onPressed: ()async{
+                onPressed: () async{
                           if(widget.card){
 
                             String isOperational = await Auth().isShopOperational(widget.shop.shopName,widget.category);

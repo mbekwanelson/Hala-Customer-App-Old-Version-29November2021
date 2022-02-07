@@ -95,14 +95,13 @@ class _CheckOutState extends State<CheckOut> {
     Auth _auth = Auth();
 
     double calculateTotal(List<ConfirmCheckOut> confirmCheckOut,String paymentMethod) {
-      if (price.calculatePrice(confirmCheckOut,paymentMethod) > promo.price) {
+      if(price.calculatePrice(confirmCheckOut,paymentMethod) > promo.price){
         if (promoStop == 0) {
           promoApplied = "Yes";
         }
 
-
-
         return price.calculatePrice(confirmCheckOut,paymentMethod);
+
       } else {
         if (promoStop == 0) {
           promoApplied = "Yes";
@@ -370,6 +369,9 @@ class _CheckOutState extends State<CheckOut> {
                                   card = false;
                                 }
                                 double subtotal = price.calculatePrice(snapshot.data,"Cash");
+
+                                print("Checkout Screen" + promoApplied);
+                                print("Checkout Screen" + promo.promoValue.toString());
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
